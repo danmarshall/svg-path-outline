@@ -1,0 +1,24 @@
+{
+  "name": "svg-path-expand",
+  "version": "1.0.0",
+  "description": "Create an outline surrounding an SVG path",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danmarshall/svg-path-expand.git"
+  },
+  "keywords": [
+    "svg",
+    "path",
+    "stroke"
+  ],
+  "author": "Dan Marshall",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/danmarshall/svg-path-expand/issues"
+  },
+  "homepage": "https://github.com/danmarshall/svg-path-expand#readme"
+}
