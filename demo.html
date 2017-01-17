@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title></title>
+    <title>svg-path-outline</title>
+
+    <script src="http://microsoft.github.io/maker.js/target/js/browser.maker.js" type="text/javascript"></script>
+    <script src="https://pomax.github.io/bezierjs/bezier.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var module = {};
+    </script>
+    <script src="index.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var outline = module.exports;
+
+        function path(id, d) {
+            return '<path id="' + id + '" d="' + d + '"/>';
+        }
+
+    </script>
+    <style type="text/css">
+        svg {
+            width: 100%;
+            height: 400px;
+        }
+        path {
+            fill: none;
+            stroke-width: 1px;
+            stroke: blue;
+        }
+        #p1 {
+            stroke: red;
+        }
+    </style>
 </head>
 <body>
     <h1>demo</h1>
 
     <a href="https://github.com/danmarshall/svg-path-outline">link to GitHub repo</a>
+
+    <script type="text/javascript">
+        var d1 = "M 100 200 C 200 100 300   0 400 100 C 500 200 600 300 700 200 C 800 100 900 100 900 100";
+        var d2 = outline(d1, 10);
+        var d3 = outline(d1, 20);
     
+        document.write('<svg>' + path('p1', d1) + path('p2', d2) + path('p3', d3) + '</svg>');
+    </script>
+
 </body>
 </html>
