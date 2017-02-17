@@ -22,9 +22,6 @@
   },
   "homepage": "https://github.com/danmarshall/svg-path-outline#readme",
   "dependencies": {
-    "makerjs": "^0.9.31"
-  },
-  "devDependencies": {
-    "@types/maker.js": "^0.9.0"
+    "makerjs": "^0.9.36"
   }
 }
