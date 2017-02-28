@@ -2,7 +2,7 @@
 
 Create an outline surrounding an SVG path
 
-TODO: PNG examples
+![Image of example outlines](example.png)
 
 A stroke is typically used to outline an SVG element. Use this package if you need an actual SVG path instead. When corners are outlined, you have the option of specifying the style of joint: round, square, or beveled. 
 
