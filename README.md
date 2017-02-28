@@ -80,7 +80,7 @@ Example in HTML:
  var d = starPath.getAttribute('d');
  var outline = spo(d, 10);
  starPath.setAttribute('d', d + outline);
-<script type="text/javascript">
+</script>
 ```
 
 ## License
