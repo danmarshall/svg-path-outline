@@ -1,9 +1,10 @@
 {
     "compilerOptions": {
+        "declaration": true,
         "lib": [
-            "dom",
-            "es2015"
-        ]
+            "es5"
+        ],
+        "skipLibCheck": true
     },
     "files": [
         "index.ts"

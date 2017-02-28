@@ -1,46 +1,54 @@
 import * as makerjs from "makerjs";
 
-export interface Options {
+export interface options {
+    bezierAccuracy?: number;
     joints?: number;
+    inside?: boolean;
     outside?: boolean;
     tagName?: 'path' | 'polygon' | 'polyline';
 }
 
-module.exports = function (svgData: string, distance: number, options?: Options): string {
+export default function outline (svgData: string, distance: number, opts?: options): string {
 
-    const defaultOptions: Options = { joints: 0, outside: true, tagName: 'path' };
+    const defaultOptions: options = {
+        bezierAccuracy: 0.25,
+        joints: 0,
+        outside: true,
+        tagName: 'path'
+    };
 
-    var o = makerjs.extendObject(defaultOptions, options) as Options;
+    var o = makerjs.extendObject(defaultOptions, opts) as options;
 
     let closed = true;
-    let model: MakerJs.IModel;
+    let input: makerjs.IModel;
 
     switch (o.tagName) {
         case 'polyline':
             closed = false;
-            //fall through
+        //fall through
 
         case 'polygon':
-            model = makerjs.model.mirror(new makerjs.models.ConnectTheDots(closed, svgData), false, true);
+            //use points. 
+            //Need to mirror them on y axis because they are expected to be in MakerJs coordinate space
+            input = makerjs.model.mirror(new makerjs.models.ConnectTheDots(closed, svgData), false, true);
             break;
 
         default:
-            model = makerjs.importer.fromSVGPathData(svgData);
+            input = makerjs.importer.fromSVGPathData(svgData, { bezierAccuracy: o.bezierAccuracy });
             break;
     }
 
-    var scaleUp = 1000;
+    var result: makerjs.IModel;
 
-    //scale up
-    makerjs.model.scale(model, scaleUp);
+    if (o.inside && o.outside) {
+        result = makerjs.model.expandPaths(input, distance, o.joints);
+    } else {
+        result = makerjs.model.outline(input, distance, o.joints, o.inside);
+    }
 
-    var outlined = makerjs.model.outline(model, distance * scaleUp, o.joints, !o.outside);
-    //var outlined = makerjs.model.expandPaths(model, distance * 1000);
+    makerjs.model.simplify(result);
 
-    makerjs.model.simplify(outlined);
-
-    //scale down
-    makerjs.model.scale(outlined, 1 / scaleUp);
-
-    return makerjs.exporter.toSVGPathData(outlined, false, [0, 0]) as string;
+    return makerjs.exporter.toSVGPathData(result, false, [0, 0]) as string;
 }
+
+module.exports = outline;

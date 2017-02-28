@@ -4,6 +4,8 @@
   "description": "Create an outline surrounding an SVG path",
   "main": "index.js",
   "scripts": {
+    "compile": "tsc",
+    "browserify": "browserify -r ./index.js:svg-path-outline -x makerjs -o ./browser/index.js",
     "test": "node test.js"
   },
   "repository": {
@@ -22,6 +24,9 @@
   },
   "homepage": "https://github.com/danmarshall/svg-path-outline#readme",
   "dependencies": {
-    "makerjs": "^0.9.36"
+    "makerjs": "^0.9.39"
+  },
+  "devDependencies": {
+    "browserify": "^14.1.0"
   }
 }
