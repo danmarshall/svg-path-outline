@@ -4,7 +4,7 @@ Create an outline surrounding an SVG path
 
 TODO: PNG examples
 
-A `stroke` is typically used to outline an SVG element. Use this package if you need an actual SVG path instead. When corners are outlined, you have the option of specifying the style of joint: round, square, or beveled. 
+A stroke is typically used to outline an SVG element. Use this package if you need an actual SVG path instead. When corners are outlined, you have the option of specifying the style of joint: round, square, or beveled. 
 
 Live demo: https://danmarshall.github.io/svg-path-outline/browser
 
@@ -48,11 +48,11 @@ Object with these optional properties:
 
 | option | type | default | description |
 |---|---|---|---|
-| `joints` | number | 0 | 0 - round joints<br/>1 - miter<br/>2 - bevel |
-| `bezierAccuracy` | number | 0.5 | Distance of accuracy for Bezier curves. A lower number is more accurate but requires more computation. Using zero is not recommended as it may never finish computing. This number is relative to the unit system of your SVG; so if you are rendering pixels, then 0.5 is accurate to half a pixel. |
-| `inside` | boolean | false | Add offset lines on the inside of the shape |
-| `outside` | boolean | true | Add offset lines on the outside of the shape |
-| `tagName` | string | 'path' | SVG tag name of the type of data:<br/>'path' - SVG path language<br/>'polygon' - point coordinates, closed shape<br/>'polyline' - point coordinates, open shape |
+| joints | number | 0 | 0 - round joints<br/>1 - miter<br/>2 - bevel |
+| bezierAccuracy | number | 0.5 | Distance of accuracy for Bezier curves. A lower number is more accurate but requires more computation. Using zero is not recommended as it may never finish computing. This number is relative to the unit system of your SVG; so if you are rendering pixels, then 0.5 is accurate to half a pixel. |
+| inside | boolean | false | Add offset lines on the inside of the shape |
+| outside | boolean | true | Add offset lines on the outside of the shape |
+| tagName | string | 'path' | SVG tag name of the type of data:<br/>'path' - SVG path language<br/>'polygon' - point coordinates, closed shape<br/>'polyline' - point coordinates, open shape |
 
 ### return value
 
