@@ -44,6 +44,8 @@ Numeric distance to offset the outline.
 
 ### options
 
+Object with these optional properties:
+
 | option | type | default | description |
 |---|---|---|---|
 | `joints` | number | 0 | 0 - round joints<br/>1 - miter<br/>2 - bevel |
