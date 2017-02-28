@@ -76,6 +76,7 @@ Example in HTML:
 </svg>
 
 <script type="text/javascript">
+ var spo = require('svg-path-outline');
  var starPath = document.querySelector('#star path');
  var d = starPath.getAttribute('d');
  var outline = spo(d, 10);
