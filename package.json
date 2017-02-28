@@ -1,6 +1,6 @@
 {
   "name": "svg-path-outline",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create an outline surrounding an SVG path",
   "main": "index.js",
   "scripts": {
